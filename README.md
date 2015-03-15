@@ -55,6 +55,6 @@ recordView.recordTool = [LVRecordTool sharedRecordTool];
     [self.recordTool stopPlaying];
     [self.recordTool stopRecording];
 }
-```     
+```
     
 
