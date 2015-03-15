@@ -7,8 +7,6 @@
 //
 
 #import "ViewController.h"
-#import <AVFoundation/AVFoundation.h>
-#import "LVRecordTool.h"
 #import "LVRecordView.h"
 
 @interface ViewController ()
@@ -24,8 +22,8 @@
 
     self.recordView = [LVRecordView recordView];
     self.recordView.backgroundColor = [UIColor lightGrayColor];
-    self.recordView.center = self.view.center;
-    self.recordView.transform = CGAffineTransformMakeTranslation(0, -200);
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    self.recordView.frame = CGRectMake(50, 100, width - 2 * 50, 100);
     [self.view addSubview:self.recordView];
 }
 
