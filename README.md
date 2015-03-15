@@ -56,5 +56,6 @@ recordView.recordTool = [LVRecordTool sharedRecordTool];
     [self.recordTool stopRecording];
 }
 ```
+![](https://github.com/liuchunlao/ImageCache/raw/master/gifResource/recordandplay.gif)
     
 
