@@ -67,29 +67,40 @@
     double currentTime = self.recordTool.recorder.currentTime;
     NSLog(@"%lf", currentTime);
     if (currentTime < 2) {
-        [self.recordTool stopRecording];
+        
         self.imageView.image = [UIImage imageNamed:@"mic_0"];
         [self alertWithMessage:@"说话时间太短"];
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            
+            [self.recordTool stopRecording];
             [self.recordTool destructionRecordingFile];
         });
     } else {
+        
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            
+            [self.recordTool stopRecording];
+            [self.recordTool destructionRecordingFile];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.imageView.image = [UIImage imageNamed:@"mic_0"];
+            });
+        });
         // 已成功录音
         NSLog(@"已成功录音");
-       
     }
-    [self.recordTool stopRecording];
 }
 
 // 手指从按钮上移除
 - (void)recordBtnDidTouchDragExit:(UIButton *)recordBtn {
-    
+    self.imageView.image = [UIImage imageNamed:@"mic_0"];
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
         [self.recordTool stopRecording];
         [self.recordTool destructionRecordingFile];
-        dispatch_sync(dispatch_get_main_queue(), ^{
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
             [self alertWithMessage:@"已取消录音"];
-            
         });
     });
     
