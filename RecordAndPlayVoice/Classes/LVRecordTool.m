@@ -67,13 +67,14 @@
 }
 
 - (void)stopRecording {
-    [self.recorder stop];
-    [self.timer invalidate];
-    
     // 复位图片
     if ([self.delegate respondsToSelector:@selector(recordTool:didstartRecoring:)]) {
         [self.delegate recordTool:self didstartRecoring: 0];
     }
+    [self.recorder stop];
+    [self.timer invalidate];
+    
+    
 }
 
 - (void)playRecordingFile {
@@ -156,10 +157,5 @@ static id instance;
     if (flag) {
         NSLog(@"录音成功");
     }
-}
-
-- (void)dealloc {
-    NSLog(@"2323");
-    [self.player stop];
 }
 @end

@@ -65,14 +65,18 @@
 // 点击
 - (void)recordBtnDidTouchUpInside:(UIButton *)recordBtn {
     double currentTime = self.recordTool.recorder.currentTime;
+    NSLog(@"%lf", currentTime);
     if (currentTime < 2) {
-        // 提示说话时间短
+        [self.recordTool stopRecording];
+        self.imageView.image = [UIImage imageNamed:@"mic_0"];
         [self alertWithMessage:@"说话时间太短"];
-    
-        // 清除文件
-        [self.recordTool destructionRecordingFile];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            [self.recordTool destructionRecordingFile];
+        });
     } else {
-        NSLog(@"发出去");
+        // 已成功录音
+        NSLog(@"已成功录音");
+       
     }
     [self.recordTool stopRecording];
 }
@@ -80,9 +84,15 @@
 // 手指从按钮上移除
 - (void)recordBtnDidTouchDragExit:(UIButton *)recordBtn {
     
-    [self.recordTool destructionRecordingFile];
-    [self.recordTool stopRecording];
-    [self alertWithMessage:@"已取消录音"];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [self.recordTool stopRecording];
+        [self.recordTool destructionRecordingFile];
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [self alertWithMessage:@"已取消录音"];
+            
+        });
+    });
+    
 }
 
 #pragma mark - 弹窗提示
