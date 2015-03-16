@@ -79,9 +79,7 @@
         
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             
-            [self.recordTool stopRecording];
-            [self.recordTool destructionRecordingFile];
-            
+            [self.recordTool stopRecording];            
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.imageView.image = [UIImage imageNamed:@"mic_0"];
             });

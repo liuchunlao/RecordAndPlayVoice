@@ -110,6 +110,17 @@ static id instance;
 #pragma mark - 懒加载
 - (AVAudioRecorder *)recorder {
     if (!_recorder) {
+        
+        // 真机环境下需要的代码
+        AVAudioSession *session = [AVAudioSession sharedInstance];
+        NSError *sessionError;
+        [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&sessionError];
+        
+        if(session == nil)
+            NSLog(@"Error creating session: %@", [sessionError description]);
+        else
+            [session setActive:YES error:nil];
+        
         // 1.获取沙盒地址
         NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
         NSString *filePath = [path stringByAppendingPathComponent:LVRecordFielName];

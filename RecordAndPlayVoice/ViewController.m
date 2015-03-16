@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "LVRecordView.h"
-#import <AVFoundation/AVFoundation.h>
+
 
 @interface ViewController ()
 
@@ -27,15 +27,6 @@
     self.recordView.frame = CGRectMake(50, 100, width - 2 * 50, 120);
     [self.view addSubview:self.recordView];
     
-    // 真机环境下需要的代码
-    AVAudioSession *session = [AVAudioSession sharedInstance];
-    NSError *sessionError;
-    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&sessionError];
-    
-    if(session == nil)
-        NSLog(@"Error creating session: %@", [sessionError description]);
-    else
-        [session setActive:YES error:nil];
 }
 
 @end
