@@ -1,7 +1,7 @@
 # RecordAndPlayVoice
 模仿微信的录音和播放功能，在录音的时候检测音量调整图片，可以实现录音、播放、及删除录音文件功能。<br>
 
-一、使用录音界面 <br>
+## 一、使用录音界面
 1.将CustomView和Classes两个文件夹的内容添加到项目 <br>
 2.包含录音界面头文件        
      #import "LVRecordView.h"
@@ -19,7 +19,7 @@ self.recordView.frame = CGRectMake(50, 100, width - 2 * 50, 100);
 4.需要需要调整self.recordView的位置即可实现录音功能。 <br>
 
 
-二、用户自己实现了界面 <br>
+## 二、用户自己实现了界面
 1.将classes文件夹导入到项目中 <br>
 2.包含录音工具的头文件       
     #import "LVRecordTool.h"
@@ -56,6 +56,7 @@ recordView.recordTool = [LVRecordTool sharedRecordTool];
     [self.recordTool stopRecording];
 }
 ```
+##录音播放工具效果图
 ![](https://github.com/liuchunlao/ImageCache/raw/master/gifResource/recordandplay.gif)
     
 
