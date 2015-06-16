@@ -12,8 +12,7 @@
 
 @interface LVRecordTool () <AVAudioRecorderDelegate>
 
-/** 播放器对象 */
-@property (nonatomic, strong) AVAudioPlayer *player;
+
 
 /** 录音文件地址 */
 @property (nonatomic, strong) NSURL *recordFileUrl;
@@ -67,7 +66,7 @@
 }
 
 - (void)stopRecording {
-    [self.recorder stop];
+    if ([self.recorder isRecording]) [self.recorder stop];
     [self.timer invalidate];
 }
 

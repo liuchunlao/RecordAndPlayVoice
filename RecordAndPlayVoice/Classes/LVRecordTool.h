@@ -39,6 +39,8 @@
 
 /** 录音对象 */
 @property (nonatomic, strong) AVAudioRecorder *recorder;
+/** 播放器对象 */
+@property (nonatomic, strong) AVAudioPlayer *player;
 
 /** 更新图片的代理 */
 @property (nonatomic, assign) id<LVRecordToolDelegate> delegate;

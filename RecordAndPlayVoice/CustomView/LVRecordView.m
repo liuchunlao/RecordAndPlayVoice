@@ -116,8 +116,11 @@
 }
 
 - (void)dealloc {
-    [self.recordTool stopPlaying];
-    [self.recordTool stopRecording];
+    
+    if ([self.recordTool.recorder isRecording]) [self.recordTool stopPlaying];
+    
+    if ([self.recordTool.player isPlaying]) [self.recordTool stopRecording];
+    
 }
 
 #pragma mark - LVRecordToolDelegate
