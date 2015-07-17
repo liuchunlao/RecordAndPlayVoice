@@ -20,6 +20,8 @@
 /** 定时器 */
 @property (nonatomic, strong) NSTimer *timer;
 
+@property (nonatomic, strong) AVAudioSession *session;
+
 @end
 
 @implementation LVRecordTool
@@ -28,6 +30,18 @@
     // 录音时停止播放 删除曾经生成的文件
     [self stopPlaying];
     [self destructionRecordingFile];
+    
+    // 真机环境下需要的代码
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    NSError *sessionError;
+    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&sessionError];
+    
+    if(session == nil)
+        NSLog(@"Error creating session: %@", [sessionError description]);
+    else
+        [session setActive:YES error:nil];
+    
+    self.session = session;
     
     [self.recorder record];
 
@@ -66,8 +80,10 @@
 }
 
 - (void)stopRecording {
-    if ([self.recorder isRecording]) [self.recorder stop];
-    [self.timer invalidate];
+    if ([self.recorder isRecording]) {
+        [self.recorder stop];
+        [self.timer invalidate];
+    }
 }
 
 - (void)playRecordingFile {
@@ -76,7 +92,9 @@
     
     // 正在播放就返回
     if ([self.player isPlaying]) return;
+
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.recordFileUrl error:NULL];
+    [self.session setCategory:AVAudioSessionCategorySoloAmbient error:nil];
     [self.player play];
 }
 
@@ -109,16 +127,6 @@ static id instance;
 #pragma mark - 懒加载
 - (AVAudioRecorder *)recorder {
     if (!_recorder) {
-        
-        // 真机环境下需要的代码
-        AVAudioSession *session = [AVAudioSession sharedInstance];
-        NSError *sessionError;
-        [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&sessionError];
-        
-        if(session == nil)
-            NSLog(@"Error creating session: %@", [sessionError description]);
-        else
-            [session setActive:YES error:nil];
         
         // 1.获取沙盒地址
         NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
@@ -159,7 +167,7 @@ static id instance;
 #pragma mark - AVAudioRecorderDelegate
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag {
     if (flag) {
-        NSLog(@"录音成功");
+        [self.session setActive:NO error:nil];
     }
 }
 @end
