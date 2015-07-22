@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
  s.version      = "1.0"
  s.summary      = "The easiest way to record and play voice"
  s.homepage     = "https://github.com/liuchunlao/RecordAndPlayVoice"
- s.license      = "MIT"
+ s.license      = {:type=>"MIT",:file=>"LICENCE"}
  s.authors      = { 'liuchunlao' => 'liuchunlao@qq.com'}
  s.platform     = :ios, "6.0"
  s.source       = { :git => "https://github.com/liuchunlao/RecordAndPlayVoice.git", :tag => "1.0" }
