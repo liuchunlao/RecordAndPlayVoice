@@ -15,7 +15,6 @@
 		1280A2AF1AB1745C0020C955 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1280A2AD1AB1745C0020C955 /* LaunchScreen.xib */; };
 		1280A2BB1AB1745C0020C955 /* RecordAndPlayVoiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1280A2BA1AB1745C0020C955 /* RecordAndPlayVoiceTests.m */; };
 		12DD4E0D1AB3D4470091379D /* LVRecordTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DD4E0C1AB3D4470091379D /* LVRecordTool.m */; };
-		12DD4E0F1AB3D8AC0091379D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12DD4E0E1AB3D8AC0091379D /* AVFoundation.framework */; };
 		D95FF8D01AB51DB800B87500 /* LVRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = D95FF8CF1AB51DB800B87500 /* LVRecordView.m */; };
 		D95FF8D21AB51DD400B87500 /* LVRecordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95FF8D11AB51DD400B87500 /* LVRecordView.xib */; };
 /* End PBXBuildFile section */
@@ -46,7 +45,6 @@
 		1280A2BA1AB1745C0020C955 /* RecordAndPlayVoiceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordAndPlayVoiceTests.m; sourceTree = "<group>"; };
 		12DD4E0B1AB3D4470091379D /* LVRecordTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LVRecordTool.h; sourceTree = "<group>"; };
 		12DD4E0C1AB3D4470091379D /* LVRecordTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LVRecordTool.m; sourceTree = "<group>"; };
-		12DD4E0E1AB3D8AC0091379D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D95FF8CE1AB51DB800B87500 /* LVRecordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LVRecordView.h; sourceTree = "<group>"; };
 		D95FF8CF1AB51DB800B87500 /* LVRecordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LVRecordView.m; sourceTree = "<group>"; };
 		D95FF8D11AB51DD400B87500 /* LVRecordView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LVRecordView.xib; sourceTree = "<group>"; };
@@ -57,7 +55,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12DD4E0F1AB3D8AC0091379D /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,7 +71,6 @@
 		1280A2921AB1745C0020C955 = {
 			isa = PBXGroup;
 			children = (
-				12DD4E0E1AB3D8AC0091379D /* AVFoundation.framework */,
 				1280A29D1AB1745C0020C955 /* RecordAndPlayVoice */,
 				1280A2B71AB1745C0020C955 /* RecordAndPlayVoiceTests */,
 				1280A29C1AB1745C0020C955 /* Products */,
