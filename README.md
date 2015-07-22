@@ -2,7 +2,12 @@
 模仿微信的录音和播放功能，在录音的时候检测音量调整图片，可以实现录音、播放、及删除录音文件功能。<br>
 
 ## 一、使用录音界面
+
+* cocoapods导入：`pod 'LVRecordTool', '~> 1.0'` 导入录音和播放功能的文件，具体界面实现可以参考CustomView。
+
 1.将CustomView和Classes两个文件夹的内容添加到项目 <br>
+
+
 2.包含录音界面头文件        
      #import "LVRecordView.h"
 
