@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,23 +12,11 @@
             <rect key="frame" x="0.0" y="0.0" width="248" height="120"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IY3-xL-XKB">
-                    <rect key="frame" x="20" y="80" width="127" height="40"/>
-                    <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="jSa-sP-H74"/>
-                        <constraint firstAttribute="width" constant="127" id="rXq-NP-9hh"/>
-                    </constraints>
-                    <state key="normal" title="录音按钮">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b06-Oe-OJM">
                     <rect key="frame" x="164" y="80" width="64" height="40"/>
                     <color key="backgroundColor" red="0.0" green="1" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="X0o-WW-qgr"/>
-                        <constraint firstAttribute="width" constant="64" id="uXc-Xz-saS"/>
+                        <constraint firstAttribute="height" constant="40" id="EOQ-rL-Tei"/>
                     </constraints>
                     <state key="normal" title="播放按钮">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -39,15 +29,27 @@
                         <constraint firstAttribute="height" constant="64" id="yuQ-kp-14b"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IY3-xL-XKB">
+                    <rect key="frame" x="20" y="80" width="127" height="40"/>
+                    <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="wpM-NM-B43"/>
+                    </constraints>
+                    <state key="normal" title="录音按钮">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="IY3-xL-XKB" secondAttribute="bottom" id="BfY-2c-tDz"/>
-                <constraint firstItem="IY3-xL-XKB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="EUN-yF-V5c"/>
-                <constraint firstItem="IY3-xL-XKB" firstAttribute="top" secondItem="IRp-t8-iqi" secondAttribute="bottom" constant="7" id="GF1-uA-i1P"/>
-                <constraint firstAttribute="bottom" secondItem="b06-Oe-OJM" secondAttribute="bottom" id="T5t-lJ-zqN"/>
-                <constraint firstAttribute="trailing" secondItem="b06-Oe-OJM" secondAttribute="trailing" constant="20" id="Us6-1G-p7x"/>
-                <constraint firstItem="IY3-xL-XKB" firstAttribute="centerX" secondItem="IRp-t8-iqi" secondAttribute="centerX" constant="0.5" id="i6g-i1-smT"/>
+                <constraint firstItem="IY3-xL-XKB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="38H-Da-BhW"/>
+                <constraint firstAttribute="bottom" secondItem="IY3-xL-XKB" secondAttribute="bottom" id="F7U-0I-hf4"/>
+                <constraint firstItem="IRp-t8-iqi" firstAttribute="centerX" secondItem="IY3-xL-XKB" secondAttribute="centerX" id="P7f-Gu-48i"/>
+                <constraint firstItem="b06-Oe-OJM" firstAttribute="leading" secondItem="IY3-xL-XKB" secondAttribute="trailing" constant="17" id="SzE-sT-3un"/>
+                <constraint firstAttribute="bottom" secondItem="b06-Oe-OJM" secondAttribute="bottom" id="Yto-g5-OVZ"/>
+                <constraint firstItem="b06-Oe-OJM" firstAttribute="width" secondItem="IY3-xL-XKB" secondAttribute="height" multiplier="8:5" id="aEh-7y-LFu"/>
+                <constraint firstAttribute="trailing" secondItem="b06-Oe-OJM" secondAttribute="trailing" constant="20" id="aS5-7H-MDU"/>
+                <constraint firstItem="IY3-xL-XKB" firstAttribute="top" secondItem="IRp-t8-iqi" secondAttribute="bottom" constant="7" id="rsx-as-AvO"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

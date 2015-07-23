@@ -94,7 +94,7 @@
     if ([self.player isPlaying]) return;
 
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.recordFileUrl error:NULL];
-    [self.session setCategory:AVAudioSessionCategorySoloAmbient error:nil];
+    [self.session setCategory:AVAudioSessionCategoryPlayback error:nil];
     [self.player play];
 }
 
